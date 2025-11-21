@@ -6,16 +6,13 @@ module.exports = {
     const groupName = groupInfo.subject;
     const totalMembers = groupInfo.participants.length;
 
-    for (const members of newMembers) {
-        const member = members.phoneNumber
+    for (const member of newMembers) {
       let profilePicUrl;
       try {
         profilePicUrl = await api.profilePictureUrl(member, 'image');
       } catch (error) {
         profilePicUrl = null;
       }
-
-
 
       const username = `@${member.split('@')[0]}`;
       const welcomeMessage = `🎉✨ *Hey ${username}, Welcome to ${groupName}!* ✨🎉\n\n` +

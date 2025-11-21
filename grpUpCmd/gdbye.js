@@ -3,10 +3,9 @@ module.exports = {
   handle: async ({ api, event }) => {
     const removedMembers = event.participants;
     for (const member of removedMembers) {
-        
       await api.sendMessage(event.id, {
-        text: `Goodbye @${member.phoneNumber.split('@')[0]}, we'll miss you!`,
-        mentions: [member.phoneNumber]
+        text: `Goodbye @${member.split('@')[0]}, we'll miss you!`,
+        mentions: [member]
       });
     }
   }
